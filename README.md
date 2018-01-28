@@ -2,6 +2,6 @@
 
 To launch the app:
 
-node server.js
+* node server.js
 
-Navigate to http://localhost:8080
+* Navigate to http://localhost:8080
