@@ -1,0 +1,39 @@
+<div class="container">
+    <main id="product-main" ng-if="vm.product" class="row">
+        <section id="product-img-container" class="col-xs-12 col-sm-5">
+            <img id="product-img" ng-src="{{vm.product.imagelink}}" alt="{{vm.product.name}}">
+        </section>
+        <section id="product-details-container" class="col-xs-12 col-sm-7">
+            <h1>{{vm.product.name}}</h1>
+            <span ng-repeat="star in vm.filledStars" class="glyphicon glyphicon-star" aria-hidden="true">&nbsp;</span>
+            <span ng-repeat="star in vm.emptyStars" class="glyphicon glyphicon-star-empty" aria-hidden="true">&nbsp;</span>
+            <h5>Stock: {{vm.product.stock}}</h5>
+            <p class="lead">
+                <em>{{vm.product.description}}</em>
+            </p>
+            <h3>${{vm.product.price}}</h3>
+            <br>
+            <form class="form-inline" ng-submit="vm.addToCart()">
+                <fieldset ng-if="vm.product.stock !== '0'">
+                    <div class="form-group">
+                        <label for="qtyInput">Qty&nbsp;
+                            <input type="number" class="form-control" id="qtyInput" min="1" max="{{vm.product.stock}}" ng-model="vm.quantity" required> &nbsp;
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </fieldset>
+                <fieldset ng-if="vm.product.stock === '0'" disabled>
+                    <button type="submit" class="btn btn-primary">Out of stock</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <div class="row">
+        <div class="col-xs-12" id="button-back-container">
+            <a ng-href="#" ng-click="vm.window.history.back()" id="button-back" class="btn btn-success">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                &nbsp;BACK
+            </a>
+        </div>
+    </div>
+</div>

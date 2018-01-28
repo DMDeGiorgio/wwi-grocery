@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <section class="row">
+        <div class="col-xs-12 col-sm-7 col-md-8">
+            <p ng-hide="!shoppingState.selectedCategoryName">Showing {{(shoppingState.selectedSubcategoryObj.items | filter:vm.filterItems ).length}} of {{shoppingState.selectedSubcategoryObj.items.length}}
+                for:
+                <strong>{{shoppingState.selectedCategoryName + ' : ' + shoppingState.selectedSubcategoryObj.name}}</strong>
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2">
+            <label class="control-bar-label">
+                In Stock Only:&nbsp;
+                <input type="checkbox" ng-model="shoppingState.inStockOnly">
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-2">
+            <label class="control-bar-label">
+                Sort by:&nbsp;
+                <select ng-model="shoppingState.orderProp">
+                    <option value="subcategory">None</option>
+                    <option value="price">Price</option>
+                    <option value="name">Alphabetical</option>
+                    <option value="rating">Rating (desc.)</option>
+                </select>
+            </label>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+        </div>
+    </div>
+    <main class="row">
+        <section class="col-xs-6 col-sm-4 col-md-3" id="category-menu">
+            <ul>
+                <li ng-repeat="category in vm.products">
+                    <a ng-href="#" ng-click="isCollapsed = !isCollapsed">{{category.category}}</a>
+                    <ul uib-collapse="isCollapsed = vm.collapseAtBeginning(isCollapsed, category.category)">
+                        <li ng-repeat="subcategory in category.subcategories">
+                            <a ng-href="#" ng-click="vm.selectSubcategory(category.category,subcategory)">{{subcategory.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section class="col-xs-6 col-sm-8 col-md-9">
+            <div class="row" id="shopping-grid">
+                <div class="thumbnail col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="item in shoppingState.selectedSubcategoryObj.items | filter:vm.filterItems | orderBy:shoppingState.orderProp:(shoppingState.orderProp === 'rating')">
+                    <figure class="thumbnail-figure" uib-popover="{{item.description}}" popover-trigger="'mouseenter'">
+                        <a ng-href="/product/{{item.name}}">
+                            <img ng-src="{{item.imagelink}}" alt="{{item.name}}" class="thumbnail-image">
+                        </a>
+                        <figcaption>
+                            <a ng-href="/product/{{item.name}}">
+                                <h5>{{item.name}}</h5>
+                            </a>
+                            <p>{{item.price}}$</p>
+                            <p>
+                                <a ng-if="item.stock !== '0'" href="#" class="btn btn-primary" role="button" ng-click="vm.addToCart(item)">Add to Cart</a>
+                                <a ng-if="item.stock === '0'" href="#" class="btn btn-primary disabled" role="button">Out of stock</a>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

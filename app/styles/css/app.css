@@ -1,0 +1,265 @@
+.slide-figure {
+    height: 330px;
+}
+
+.slide-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#homepage-header {
+    text-align:center;
+    margin-bottom: 25px;
+}
+
+#btn-shop-all-div {
+    text-align: center;
+}
+
+#category-menu {
+    padding-left: 0; 
+}
+
+#category-menu ul {
+    list-style-type: none;
+    padding-left: 20px; 
+}
+
+#category-menu li {
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.control-bar-label {
+    font-weight: normal;
+}
+
+.thumbnail-figure {
+    padding: 5px 0 0 20px;
+    height: 210px;
+}
+
+.thumbnail-image {
+    max-height: 35%;
+    max-width: 100%;
+    display: inline !important;
+}
+
+#shopping-grid {
+    padding-right: 15px;
+}
+
+#product-main {
+    margin-top: 50px;
+}
+
+#button-back-container {
+    text-align: center;
+}
+
+#button-back {
+    margin: 20px 0;
+}
+
+#product-img-container {
+    height: 400px;
+    text-align: center;
+    font: 0/0 a;
+}
+
+#product-img-container:before { 
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle; 
+    height: 100%;
+}
+
+#product-img {
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#product-details-container {
+    margin-top: 4%;
+    text-align: center;
+}
+
+#cart-main {
+    margin-top: 40px;
+}
+
+#qtyInput {
+    width: 80px;
+}
+
+.img-td {
+    text-align: center;
+}
+
+.product-img-in-td {
+    max-height: 27px;
+}
+
+.qtyInput-in-td {
+    width: 60px;
+}
+
+#contact-container {
+    margin-top: 40px;
+}
+
+#cart-link {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+#ng-view-div {
+    min-height: 100%;
+    margin-bottom: 18px;
+    overflow: auto;
+    padding-bottom: 160px;
+}
+
+#footer > div {
+    padding-top: 5px;
+}  
+
+#footer a {
+    padding-top: 5px;
+}
+
+#footer-links {
+    text-align: center;
+}
+
+#copyright {
+    text-align: right;
+    margin-top: 12px;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.about-img1, .about-img2, .about-img3, .about-img4, .about-img5 {
+    position: relative;
+    opacity: 0.80;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about-img1 {
+    background-image: url("../../img/company.jpg");
+    min-height: 500px;
+}
+  
+.about-img2 {
+    background-image: url("../../img/worldwide.jpg");
+    min-height: 400px;
+}
+  
+.about-img3 {
+    background-image: url("../../img/environment.jpg");
+    min-height: 400px;
+}
+  
+.about-img4 {
+    background-image: url("../../img/product.jpg");
+    min-height: 400px;
+}
+  
+.about-img5 {
+    background-image: url("../../img/shopwithus.jpg");
+    min-height: 500px;
+}
+
+.about-white-bg-article {
+    color: #777;
+    background-color: white;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+}
+
+.about-white-bg-h {
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 20px;
+    color: #111;
+}
+
+.about-dark-bg-section {
+    position: relative;
+}
+
+.about-dark-bg-section > div {
+    color: #ddd;
+    background-color: #282E34;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+}
+  
+.caption {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+  
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+.nowrap-caption {
+    white-space: nowrap;
+}
+
+.border-bg-transparent {
+    background-color: transparent !important;
+    font-size: 25px;
+    color: #f7f7f7;
+}
+  
+/* Turn off about page scrolling effect for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .about-img2, .about-img3, .about-img4, .about-img5 {
+        background-attachment: scroll;
+    }
+}
+
+
+/* Following settings are for having a sticky footer at the bottom */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+html,
+body {
+    height: 100%;
+}
+
+#footer {
+    position: relative;
+    margin-top: -160px;
+    height: 160px;
+    clear: both;
+    background-color: #ecf0f1;
+}
+
+body:before {
+    content: "";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+} 

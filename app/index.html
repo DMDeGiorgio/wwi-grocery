@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" ng-app="worldwideimportersApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>World Wide Importers Grocery</title>
+  <base href="/" />
+
+  <link rel="stylesheet" href="styles/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/css/app.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+  <script src="app.module.js"></script>
+  <script src="app.config.js"></script>
+  <script src="common/common.module.js"></script>
+  <script src="common/product/product.service.js"></script>
+  <script src="common/cart/cart.service.js"></script>
+  <script src="nav.controller.js"></script>
+  <script src="homepage/homepage.controller.js"></script>
+  <script src="product/product.controller.js"></script>
+  <script src="shopping/shopping.controller.js"></script>
+  <script src="cart/cart.controller.js"></script>
+  <script src="contact/contact.controller.js"></script>
+</head>
+
+<body>
+  <nav ng-controller="navController as vm" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="vm.isNavCollapsed = !vm.isNavCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">WWI Grocery</a>
+      </div>
+      <div class="collapse navbar-collapse" uib-collapse="vm.isNavCollapsed">
+        <ul class="nav navbar-nav navbar-right nav-pills">
+          <li>
+            <a href="/shopping">Shop All</a>
+          </li>
+          <li>
+            <a href="/cart" id="cart-link">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+              <span class="badge">{{vm.Cart.countProducts()}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div ng-view id="ng-view-div"></div>
+
+  <footer id="footer">
+    <div class="container-fluid">
+      <div id="footer-links" class="row">
+        <span>
+          <a class=" col-xs-12 col-sm-offset-3 col-sm-2" href="/">Home page</a>
+          <a class=" col-xs-12 col-sm-2" href="/about">About</a>
+          <a class=" col-xs-12 col-sm-2" href="/contact">Contact</a>
+        </span>
+      </div>
+      <div class="row" id="copyright">
+        <span>
+          <small>
+            <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> WWI Grocery 2018</small>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
